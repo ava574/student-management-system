@@ -1,5 +1,14 @@
-Placement Management System
+# Student Management System
 
-- Developed a Java-based system for managing placements
-- Features: Student data, company records, selection tracking
-- Technologies: Java, Maven
+## Features
+- Add Student
+- Delete Student
+- Data stored in browser (LocalStorage)
+
+## Tech Stack
+- HTML
+- CSS
+- JavaScript
+
+## How to Run
+Open index.html in browser
