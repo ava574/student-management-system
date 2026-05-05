@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Placement Login</title>
+    <link rel="stylesheet" th:href="@{/css/placement-style.css}">
+</head>
+<body>
+<div class="auth-container card">
+    <h2 class="auth-title">Placement Login</h2>
+
+    <p th:if="${error}" class="message" th:text="${error}"></p>
+    <p th:if="${msg}" class="success" th:text="${msg}"></p>
+
+    <form th:action="@{/auth/login}" method="post">
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+
+    <p style="margin-top:10px; font-size:13px;">
+        New student? <a th:href="@{/auth/register}">Create account</a>
+    </p>
+</div>
+</body>
+</html>

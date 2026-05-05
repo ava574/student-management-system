@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Dashboard - Placement</title>
+    <link rel="stylesheet" th:href="@{/css/placement-style.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="title">Placement Portal - Student</div>
+    <div class="topbar-nav">
+        <span th:text="${student != null ? student.name : 'Student'}"></span>
+        <a th:href="@{/auth/logout}">Logout</a>
+    </div>
+</header>
+
+<main class="page">
+    <section class="card">
+        <h3>Your Profile</h3>
+        <p th:if="${student == null}">Profile not found. Contact admin.</p>
+        <div th:if="${student != null}">
+            <p><b>Name:</b> <span th:text="${student.name}"></span></p>
+            <p><b>Email:</b> <span th:text="${student.email}"></span></p>
+            <p><b>Course:</b> <span th:text="${student.course}"></span></p>
+            <p><b>CGPA:</b> <span th:text="${student.cgpa}"></span></p>
+            <p><b>Skills:</b> <span th:text="${student.skills}"></span></p>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>Your Placement Status</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${placements}">
+                <td th:text="${p.company.name}"></td>
+                <td th:text="${p.company.role}"></td>
+                <td th:text="${p.status}"></td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(placements)}">
+                <td colspan="3">No placements yet.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>

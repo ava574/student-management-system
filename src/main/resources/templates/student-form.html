@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Form</title>
+    <link rel="stylesheet" th:href="@{/css/placement-style.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="title">Student Form</div>
+    <div class="topbar-nav">
+        <a th:href="@{/admin/students}">← Back</a>
+    </div>
+</header>
+
+<main class="page">
+    <section class="card">
+        <form th:action="@{/admin/students/save}" th:object="${student}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <label>Name</label>
+            <input type="text" th:field="*{name}" required>
+
+            <label>Email</label>
+            <input type="email" th:field="*{email}" required>
+
+            <label>Course</label>
+            <input type="text" th:field="*{course}" required>
+
+            <label>CGPA</label>
+            <input type="number" step="0.01" th:field="*{cgpa}" required>
+
+            <label>Skills</label>
+            <textarea th:field="*{skills}"></textarea>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

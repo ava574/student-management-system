@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students - Placement</title>
+    <link rel="stylesheet" th:href="@{/css/placement-style.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="title">Students</div>
+    <div class="topbar-nav">
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/auth/logout}">Logout</a>
+    </div>
+</header>
+
+<main class="page">
+    <section class="card">
+        <form method="get">
+            <input type="text" name="keyword" placeholder="Search name/email"
+                   th:value="${keyword}">
+            <button class="btn btn-primary" type="submit">Search</button>
+            <a th:href="@{/admin/students/new}" class="btn btn-secondary">+ Add Student</a>
+        </form>
+    </section>
+
+    <section class="card">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>CGPA</th>
+                <th>Skills</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="s : ${students}">
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.email}"></td>
+                <td th:text="${s.course}"></td>
+                <td th:text="${s.cgpa}"></td>
+                <td th:text="${s.skills}"></td>
+                <td>
+                    <a th:href="@{'/admin/students/edit/' + ${s.id}}" class="btn btn-sm btn-secondary">Edit</a>
+                    <a th:href="@{'/admin/students/delete/' + ${s.id}}" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete this student?')">Delete</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(students)}">
+                <td colspan="6">No students found.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Companies</title>
+    <link rel="stylesheet" th:href="@{/css/placement-style.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="title">Companies</div>
+    <div class="topbar-nav">
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/auth/logout}">Logout</a>
+    </div>
+</header>
+
+<main class="page">
+    <section class="card">
+        <form method="get">
+            <input type="text" name="keyword" placeholder="Search name/role"
+                   th:value="${keyword}">
+            <button class="btn btn-primary" type="submit">Search</button>
+            <a th:href="@{/admin/companies/new}" class="btn btn-secondary">+ Add Company</a>
+        </form>
+    </section>
+
+    <section class="card">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Min CGPA</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${companies}">
+                <td th:text="${c.name}"></td>
+                <td th:text="${c.role}"></td>
+                <td th:text="${c.minCgpa}"></td>
+                <td th:text="${c.location}"></td>
+                <td>
+                    <a th:href="@{'/admin/companies/edit/' + ${c.id}}" class="btn btn-sm btn-secondary">Edit</a>
+                    <a th:href="@{'/admin/companies/delete/' + ${c.id}}" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete this company?')">Delete</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(companies)}">
+                <td colspan="5">No companies found.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>

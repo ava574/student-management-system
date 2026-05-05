@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Placement</title>
+    <link rel="stylesheet" th:href="@{/css/placement-style.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="title">Add Placement</div>
+    <div class="topbar-nav">
+        <a th:href="@{/admin/placements}">← Back</a>
+    </div>
+</header>
+
+<main class="page">
+    <section class="card">
+        <form th:action="@{/admin/placements/save}" th:object="${placement}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <label>Student</label>
+            <select name="studentId" required>
+                <option value="">-- Select Student --</option>
+                <option th:each="s : ${students}"
+                        th:value="${s.id}"
+                        th:text="${s.name}"></option>
+            </select>
+
+            <label>Company</label>
+            <select name="companyId" required>
+                <option value="">-- Select Company --</option>
+                <option th:each="c : ${companies}"
+                        th:value="${c.id}"
+                        th:text="${c.name}"></option>
+            </select>
+
+            <label>Status</label>
+            <select th:field="*{status}">
+                <option value="Shortlisted">Shortlisted</option>
+                <option value="Placed">Placed</option>
+                <option value="Rejected">Rejected</option>
+                <option value="In Process">In Process</option>
+            </select>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

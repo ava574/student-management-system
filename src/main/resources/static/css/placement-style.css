@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f6ff;
+}
+
+/* Top Bar */
+.topbar {
+    background: #002b6b;
+    color: #fff;
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.topbar-nav a {
+    margin-left: 12px;
+    text-decoration: none;
+    color: #e3edff;
+    font-size: 14px;
+}
+
+/* Buttons */
+.btn {
+    padding: 7px 14px;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: #0069ff;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #e0e7ff;
+    color: #002b6b;
+}
+
+.btn-danger {
+    background: #e63946;
+    color: #fff;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+/* Layout */
+.page {
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+/* Cards */
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stat-card {
+    border-radius: 10px;
+    color: #fff;
+    padding: 16px;
+}
+
+.stat-blue { background: #1e88e5; }
+.stat-green { background: #43a047; }
+.stat-orange { background: #fb8c00; }
+
+.stat-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+}
+
+.stat-card .number {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Tables */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.table th {
+    background: #0f172a;
+    color: #e5e7eb;
+    text-align: left;
+}
+
+.table tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+/* Forms */
+form label {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="password"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-actions {
+    margin-top: 16px;
+    text-align: right;
+}
+
+/* Auth pages */
+.auth-container {
+    max-width: 400px;
+    margin: 60px auto;
+}
+
+.auth-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.message {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #e11d48;
+}
+
+.success {
+    color: #15803d;
+}

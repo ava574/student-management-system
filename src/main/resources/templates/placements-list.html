@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Placements</title>
+    <link rel="stylesheet" th:href="@{/css/placement-style.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="title">Placements</div>
+    <div class="topbar-nav">
+        <a th:href="@{/admin/dashboard}">Dashboard</a>
+        <a th:href="@{/auth/logout}">Logout</a>
+    </div>
+</header>
+
+<main class="page">
+    <section class="card">
+        <a th:href="@{/admin/placements/new}" class="btn btn-secondary">+ Add Placement</a>
+        <p th:if="${msg}" class="success" th:text="${msg}"></p>
+    </section>
+
+    <section class="card">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Student</th>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${placements}">
+                <td th:text="${p.student.name}"></td>
+                <td th:text="${p.company.name}"></td>
+                <td th:text="${p.company.role}"></td>
+                <td th:text="${p.status}"></td>
+                <td>
+                    <a th:href="@{'/admin/placements/delete/' + ${p.id}}"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete this record?')">Delete</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(placements)}">
+                <td colspan="5">No placement records.</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>
