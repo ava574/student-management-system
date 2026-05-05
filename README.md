@@ -18,3 +18,6 @@ Open index.html in any browser
 
 ## 📌 Description
 A simple and interactive web application to manage student records with dynamic UI and browser storage.
+
+## 📸 Project Screenshot
+![Screenshot](screenshot.png)
